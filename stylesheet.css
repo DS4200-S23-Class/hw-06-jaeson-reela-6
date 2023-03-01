@@ -1,11 +1,15 @@
+/* Styling for HW-06 Goes in this File */
+
 body {
   font-family: Arial, sans-serif;
 }
 
+/* Center heading */
 h2, h3 {
   text-align: center;
 }
 
+/* Structure container */
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -13,12 +17,14 @@ h2, h3 {
   width: 100%;
 }
 
+/* Divide webpage into columns */
 .column {
   width: calc(100% / 3);
   box-sizing: border-box;
   padding: 0 10px;
 }
 
+/* Color species and style opacity of each point on scatterplot */
 .setosa {
   fill: #e41a1c;
   opacity: 50%;
@@ -34,6 +40,7 @@ h2, h3 {
   opacity: 50%;
 }
 
+/* Style brushed class for brush event listener */
 .brushed {
   opacity: 100%;
   stroke: orange;

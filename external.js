@@ -43,7 +43,7 @@ d3.csv("data/iris.csv").then(function(data) {
                      .domain([0, (Pet_Max_Length + 1)])
                      .range([vis_height, 0]);
 
-
+// Generate each point on scatterplot with correct dimensions and values
   let dot1 = svg1.append("g")
                        .selectAll("dots")  
                        .data(data)  
@@ -76,7 +76,7 @@ d3.csv("data/iris.csv").then(function(data) {
                      .domain([0, (Pet_Max_Width + 1)])
                      .range([vis_height, 0]);
 
-
+// Generate each point on scatterplot with correct dimensions and values
 let dot2 = svg2.append("g")
                        .selectAll("dots")
                        .data(data)  
@@ -99,6 +99,7 @@ let dot2 = svg2.append("g")
         .call(d3.axisLeft(Pet_Scale_Width).ticks(14))
         .attr("font-size", "10px");
 
+// Add brush event for scatterplot Sepal width and Petal width
 svg2.call(d3.brush()                
                  .extent([[0,0], [width, height]]) 
                  .on("start brush", brushChart)); 
@@ -113,14 +114,17 @@ svg2.call(d3.brush()
                         .domain([0, counts])
                         .range([vis_height, 0]);
 
+// Define x-axis for bargraph
   svg3.append("g")
         .attr("transform", "translate(0," + vis_height + ")")
         .call(d3.axisBottom(bar_species))
         .selectAll("text");
 
+// Define y-axis for bargraph
   svg3.append("g")
         .call(d3.axisLeft(bar_count));
 
+// Generate each bar on bargraph with correct dimensions and values
   let bar = svg3.append("g")
                     .selectAll("bar")
                     .data(data)
@@ -132,6 +136,7 @@ svg2.call(d3.brush()
                     .attr("height", function(d) {return vis_height - bar_count(50);})
                     .attr("class", (d) => {return d.Species;});
 
+// Create main function and helper function to use within brush event listeners
   function brushChart(event) {
     brushselect = event.selection;
     dot1.classed("brushed", function(d){return checkBrushed(brushselect, Sep_Scale_Width(d.Sepal_Width) + margin.left, Pet_Scale_Width(d.Petal_Width) + margin.top );})
