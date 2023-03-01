@@ -2,8 +2,8 @@
 
 // Define margin and dimensions for the scatterplot
   const margin = {top: 50, right: 50, bottom: 50, left: 50};
-  const height = 600;
-  const width = 600; 
+  const height = 570;
+  const width = 570; 
   const vis_width = width - margin.left - margin.right;
   const vis_height = height - margin.top - margin.bottom;
 
